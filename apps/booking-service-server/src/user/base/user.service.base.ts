@@ -59,4 +59,7 @@ export class UserServiceBase {
   async deleteUser(args: Prisma.UserDeleteArgs): Promise<PrismaUser> {
     return this.prisma.user.delete(args);
   }
+  async SignIn(args: string): Promise<string> {
+    throw new Error("Not implemented");
+  }
 }

@@ -204,4 +204,21 @@ export class UserControllerBase {
       throw error;
     }
   }
+
+  @common.Get("/:id/sign-in")
+  @swagger.ApiOkResponse({
+    type: String,
+  })
+  @swagger.ApiNotFoundResponse({
+    type: errors.NotFoundException,
+  })
+  @swagger.ApiForbiddenResponse({
+    type: errors.ForbiddenException,
+  })
+  async SignIn(
+    @common.Body()
+    body: string
+  ): Promise<string> {
+    return this.service.SignIn(body);
+  }
 }

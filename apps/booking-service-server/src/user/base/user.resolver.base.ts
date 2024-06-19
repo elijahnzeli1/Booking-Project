@@ -131,4 +131,12 @@ export class UserResolverBase {
       throw error;
     }
   }
+
+  @graphql.Query(() => String)
+  async SignIn(
+    @graphql.Args()
+    args: string
+  ): Promise<string> {
+    return this.service.SignIn(args);
+  }
 }
